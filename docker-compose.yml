@@ -2,7 +2,8 @@ version: "2"
 
 services:
   app:
-    image: simplycodedsoftware:ci:7.1
+    image: simplycodedsoftware/ci:7.1
+    container_name: "integration-messaging-app"
     volumes:
       - "$PWD:/data/app"
       - "$HOME/.ssh:/home/deploy/.ssh"
@@ -11,6 +12,8 @@ services:
     command: sleep 99999
     networks:
       - default
+    ports:
+      - "3000:80"
 
 networks:
   default:
